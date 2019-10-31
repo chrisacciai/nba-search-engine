@@ -116,9 +116,14 @@ display: table-header-group;
 tr:nth-child(odd) {
     background-color: #f2f2f2;
 }
+table.center{
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:-275px; 
+}
 </style>
 
-<table>
+<table class="center">
 <thead>
   <tr>
     <th>Arena Name</th>

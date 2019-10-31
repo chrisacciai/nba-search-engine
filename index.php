@@ -18,10 +18,10 @@
         <a class="navbar-brand" href="#">NBA Search Engine</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Arena.html">Arena</a>
+            <a class="nav-link" href="Arena.php">Arena</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Assistant Coaches</a>
@@ -48,7 +48,29 @@
         </form>
       </div>
     </nav>
-
+    <Table>
+      <tr>
+        <th>First Name<th>
+        <th>Last Name<th>
+        <th>Age<th>
+      </tr>
+      <?php
+        include_once("./library.php"); // To connect to the database
+        $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
+        // Check connection
+        if (mysqli_connect_errno())
+        {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+        $sql = "SELECT * FROM Persons";
+        $result = mysqli_query($con,$sql);
+        // Print the data from the table row by row
+        while($row = mysqli_fetch_array($result)) {
+          echo "<tr><td>". $row['FirstN'] ."</td><td>". $row['LastN'] ."</td><td>". $row['Age'] ."</td></tr>";
+          }
+          mysqli_close($con);
+      ?>
+    </Table>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

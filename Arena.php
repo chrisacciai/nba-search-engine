@@ -18,10 +18,10 @@
         <a class="navbar-brand" href="#">NBA Search Engine</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="Arena.html">Arena</a>
+            <a class="nav-link" href="Arena.php">Arena</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Assistant Coaches</a>
@@ -49,14 +49,25 @@
       </div>
     </nav>
     <br>
+    <div class="sort-menu">
+            <form>
+                <label class="sort-text">Sort:</label>
+                <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Alphabetical
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Alphabetical</a>
+                          <a class="dropdown-item" href="#">Capacity</a>
+                        </div>
+                      </div>
+            </form>
+        </div>
     <div class="filter-menu">
         <form>
-            <label class="filter-text">Filter by:</label>
+            <label class="filter-text">Filter:</label>
             <div class="form-group">
-            <label for="formControlRange">Capacity</label>
-            <input type="range" class="form-control-range" id="formControlRange">
-            <br>
-            <label for="formControlDivision">Division</label>
+            <label class="division-radio" for="formControlDivision">Division</label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
                     <label class="form-check-label" for="gridRadios1">
@@ -82,6 +93,7 @@
                     </label>
                 </div>
             </div>
+            <button type="submit" class="btn btn-primary mb-2 btn-sm">Apply Filter</button>
         </form>
     </div>
 

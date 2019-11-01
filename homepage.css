@@ -7,19 +7,22 @@
     }
 }
 
-.filter-menu {
+.filter-border {
     margin-left: 35px;
-    width: 200px;
+    width: 150px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 8px 8px 8px 8px;
+    border-color: #17408B;
+    border-width: 1px;
 }
 
-.sort-menu {
-    margin-left: 35px;
-    width: 200px;
-    margin-bottom: 30px;
+.form-group {
+    margin-top: 16px;
 }
 
-.sort-text {
-    margin-bottom: 15px;
+.filter-items {
+    margin-top: 20px;
 }
 
 .logo {
@@ -27,11 +30,23 @@
 }
 
 .table-center {
-    width: 70%;
+    width: 65%;
     align-content: center;
     margin-left:auto;
-    margin-right:auto;        
-    margin-top:-320px; 
+    margin-right:auto;
+    margin-top: -165px; 
+}
+
+
+.btn {
+    border-color: #17408B !important;
+    color: #17408B !important;
+    background-color: white !important;
+}
+
+.btn:hover {
+    background-color: #17408B !important;
+    color: white !important;
 }
 
 .table-center th {

@@ -13,7 +13,7 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
         $conference = strval($_GET['q']);
-        $sql = "SELECT a.name AS arena_name, a.city, a.state, t.name AS team_name, a.capacity FROM Arena AS a JOIN (SELECT * FROM Team NATURAL JOIN Plays_At WHERE conference = '$conference') AS t ON a.arena_id = t.arena_id";
+        $sql = "SELECT a.name AS arena_name, a.city, a.state, t.name AS team_name, a.capacity FROM Arena AS a JOIN (SELECT * FROM Team NATURAL JOIN Plays_At WHERE conference = '$conference') AS t ON a.arena_id = t.arena_id ORDER BY arena_name";
         $result = mysqli_query($con,$sql);
         echo "<table class='table-center'>
         <thead>

@@ -36,7 +36,32 @@
     margin-right:auto;
     margin-top: -165px; 
 }
+.home-titles {
+    margin-top: 50px;
+    width: 60%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+}
 
+.home-title {
+    font-weight: 300;
+    font-size: 50px;
+}
+
+.card-deck {
+    margin-bottom: 30px;
+    width: 83% !important;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.home-subtitle {
+    font-weight: 300;
+    margin-top: 30px;
+    font-size: 24px;
+    color:gray;
+}
 
 .btn {
     border-color: #17408B !important;

@@ -12,7 +12,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <script>
-            function filterArenaTable() {
+            function filterVendorTable() {
                 if (window.XMLHttpRequest) {
                     // code for IE7+, Firefox, Chrome, Opera, Safari
                     xmlhttp = new XMLHttpRequest();
@@ -25,13 +25,13 @@
                         document.getElementById("table-component").innerHTML = this.responseText;
                     }
                 }
-            xmlhttp.open("GET","filterArenaTable.php?conference="+document.getElementById("conferenceDropdown").value+"&sort="+document.getElementById("sortDropdown").value, true);
+                xmlhttp.open("GET","filterVendorTable.php?arena="+document.getElementById("arenaDropdown").value, true);
                 xmlhttp.send();
             }
         </script>
 
         <script>
-            function unfilterArenaTable() {
+            function unfilterVendorTable() {
                 if (window.XMLHttpRequest) {
                     // code for IE7+, Firefox, Chrome, Opera, Safari
                     xmlhttp = new XMLHttpRequest();
@@ -45,10 +45,9 @@
                     }
                 }
                 
-                document.getElementById("sortDropdown").selectedIndex = 0;
-                document.getElementById("conferenceDropdown").selectedIndex = 0;
+                document.getElementById("arenaDropdown").selectedIndex = 0;
                 
-                xmlhttp.open("GET","unfilterArenaTable.php", true);
+                xmlhttp.open("GET","unfilterVendorTable.php", true);
                 xmlhttp.send();
             }
         </script>
@@ -66,7 +65,7 @@
                 </div>
                 <a class="navbar-brand" href="index.html">NBA Search Engine</a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="Arena.php">Arenas</a>
                     </li>
                     <li class="nav-item">
@@ -84,7 +83,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Team.php">Teams</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="Vendor.php">Vendors</a>
                     </li>
                 </ul>
@@ -98,31 +97,32 @@
         <div class="filter-border">
             <div class="filter-items">
                 <div>
-                    <label>Sort by:</label>
-                    <select class="btn btn-secondary dropdown-toggle btn-sm" id="sortDropdown">
-                        <option value="arena_name">Arena Name</option>
-                        <option value="capacity ASC">Capacity &#8593;</option>
-                        <option value="capacity DESC">Capacity &#8595;</option>
+                    <div>
+                    <label>Arena:</label>
+                    </div>
+                    <div>
+                    <select class="btn btn-secondary dropdown-toggle btn-sm" id="arenaDropdown" style="width: 75%">
+                        <option value="all">All</option>
+                        <option value="'Capital One Arena'">Capital One Arena</option>
+                        <option value="'Barclays Center'">Barclays Center</option>
+                        <option value="'American Airlines Arena'">American Airlines Arena</option>
+                        <option value="'American Airlines Center'">American Airlines Center</option>
+                        <option value="'Amway Center'">Amway Center</option>
+                        <option value="'Chase Center'">Chase Center</option>
+                        <option value="'Rocket Mortgage FieldHouse'">Rocket Mortgage FieldHouse</option>
+                        <option value="'Chesapeake Energy Arena'">Chesapeake Energy Arena</option>
+                        <option value="'Toyota Center'">Toyota Center</option>
+                        <option value="'State Farm Arena'">State Farm Arena</option>
                     </select>
-                </div>
-                <div>
-                    <br>
-                </div>
-                <div>
-                    <label>Conference:</label>
-                    <select class="btn btn-secondary dropdown-toggle btn-sm" id="conferenceDropdown">
-                        <option value="'Eastern' OR conference = 'Western'">All</option>
-                        <option value="'Eastern'">Eastern</option>
-                        <option value="'Western'">Western</option>
-                    </select>
+                    </div>
                 </div>
             </div>
             <hr color = "#C9082A" width=130px>
-            <button class="btn btn-secondary btn-sm" onclick="filterArenaTable()">Apply Filters</button>
+            <button class="btn btn-secondary btn-sm" onclick="filterVendorTable()">Apply Filters</button>
             <div>
                 <br>
             </div>
-            <button class="btn btn-secondary btn-sm" onclick="unfilterArenaTable()">Clear Filters</button>
+            <button class="btn btn-secondary btn-sm" onclick="unfilterVendorTable()">Clear Filters</button>
             <div>
                 <br>
             </div>
@@ -136,21 +136,17 @@
             {
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
-            $sql = "SELECT a.name AS arena_name, a.city, a.state, t.name AS team_name, a.capacity FROM Arena AS a JOIN (SELECT * FROM Team NATURAL JOIN Plays_At) AS t ON a.arena_id = t.arena_id ORDER BY arena_name";
+            $sql = "SELECT name FROM Vendor ORDER BY name";
             $result = mysqli_query($con,$sql);
-            echo "<table class='table-center'>
+            echo "<table class='table-center' style='margin-top: -222px'>
             <thead>
                 <tr>
-                    <th>Arena Name</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Team Name</th>
-                    <th>Capacity</th>
+                    <th>Vendor Name</th>
                 </tr>
             </thead>";
             // Print the data from the table row by row
             while($row = mysqli_fetch_array($result)) {
-                echo "<tr><td>". $row['arena_name'] ."</td><td>". $row['city'] ."</td><td>". $row['state'] ."</td><td>". $row['team_name'] ."</td><td>". $row['capacity'] ."</td></tr>";
+                echo "<tr><td>". $row['name'] ."</td></tr>";
             }
             echo "</table>";
             mysqli_close($con);

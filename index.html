@@ -1,86 +1,103 @@
 <!doctype html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="homepage.css">
-
-    <title>NBA Search Engine</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <div class="media">
-            <img class="logo" src="./nbalogo.png" class="mr-3" alt="logo" height="44" width="44">
-        </div>
-        <a class="navbar-brand" href="index.html">NBA Search Engine</a>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="Arena.php">Arena</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Assistant Coaches</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Head Coaches</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Merchandise</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Players</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Teams</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Vendors</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
-    <div class="home-titles">
-      <p class="home-title">The one stop shop for NBA data</p>
-      <p class="home-subtitle">Our simple and customizable platform aims to provide fans with comprehensive NBA statistics, data, and information all in one place.</p>
-    </div>
-    <br>
-    <br>
-    <div class="card-deck">
-        <div class="card">
-          <img src="./madisonsquare.jpg" class="card-img-top" alt="arena" height="200">
-          <div class="card-body">
-            <h5 class="card-title">Arenas</h5>
-            <p class="card-text">Find information for NBA arenas throughout the country including arena capacity, location, and respective team.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./harden.jpg" class="card-img-top" alt="player" height="200">
-          <div class="card-body">
-            <h5 class="card-title">Players</h5>
-            <p class="card-text">Find data and statistics for NBA players including current team, total points, age, name, etc.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./teams.jpg" class="card-img-top" alt="team" height="200">
-          <div class="card-body">
-            <h5 class="card-title">Teams</h5>
-            <p class="card-text">Find NBA team information including location, season ranking, upcoming games, etc.</p>
-          </div>
-        </div>
-      </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="stylesheet.css">
+                        
+        <title>NBA Search Engine</title>
+    </head>
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-  </body>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="media">
+                    <img class="logo" src="./nbalogo.png" class="mr-3" alt="logo" height="44" width="44">
+                        </div>
+                <a class="navbar-brand" href="index.html">NBA Search Engine</a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Arena.php">Arenas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AssistantCoach.php">Assistant Coaches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="HeadCoach.php">Head Coaches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Merchandise.php">Merchandise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Player.php">Players</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Team.php">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Vendor.php">Vendors</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+            </div>
+        </nav>
+        <div class="home-titles">
+            <p class="home-title">The one-stop shop for NBA data</p>
+            <p class="home-subtitle">Our simple and customizable platform aims to provide fans with comprehensive NBA statistics, data, and information all in one place.</p>
+        </div>
+        <br>
+        <br>
+        <div class="card-deck">
+            <div class="card">
+                <img src="./madisonsquare.jpg" class="card-img-top" alt="arena" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">Arenas</h5>
+                        <p class="card-text">Find information for NBA arenas throughout the country including arena capacity, location, and respective team.</p>
+                    </div>
+            </div>
+            <div class="card">
+                <img src="./harden.jpg" class="card-img-top" alt="player" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">Players</h5>
+                        <p class="card-text">Find data and statistics for NBA players including current team, total points, age, name, etc.</p>
+                    </div>
+            </div>
+            <div class="card">
+                <img src="./teams.jpg" class="card-img-top" alt="team" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">Teams</h5>
+                        <p class="card-text">Find NBA team information including location, season ranking, upcoming games, etc.</p>
+                    </div>
+            </div>
+        </div>
+        <div class = "card-deck">
+            <div class="card">
+                <img src="./pop.jpg" class="card-img-top" alt="coach" height="230">
+                    <div class="card-body">
+                        <h5 class="card-title">Coaches</h5>
+                        <p class="card-text">Look up the league's coaches, both head and assistant alike, on a season-to-season basis.</p>
+                    </div>
+            </div>
+            <div class="card">
+                <img src="./store.jpg" class="card-img-top" alt="store" height="230">
+                    <div class="card-body">
+                        <h5 class="card-title">Vendors & Merchandise</h5>
+                        <p class="card-text">Keep track of the different arena vendors across the league and what they're selling, from food to apparel and everything in between.</p>
+                    </div>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+    </body>
 </html>

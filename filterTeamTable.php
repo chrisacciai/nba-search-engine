@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./stylesheet.css">
+    </head>
+    <body>
+        <?php
+            include_once("./library.php"); // To connect to the database
+            $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
+            // Check connection
+            if (mysqli_connect_errno())
+            {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            }
+            $conference = strval($_GET['conference']);
+            $season = strval($_GET['season']);
+            $sort = strval($_GET['sort']);
+            if ($conference == "all" && $season != "all"){
+                $sql = "SELECT location, name, conference, division, year_founded, year, wins, losses FROM Team NATURAL JOIN Yearly_Team WHERE year = $season ORDER BY $sort, year";
+            }
+            else if ($conference != "all" && $season == "all"){
+                $sql = "SELECT location, name, conference, division, year_founded, year, wins, losses FROM Team NATURAL JOIN Yearly_Team WHERE conference = $conference ORDER BY $sort, year";
+            }
+            else if ($conference == "all" && $season == "all"){
+                $sql = "SELECT location, name, conference, division, year_founded, year, wins, losses FROM Team NATURAL JOIN Yearly_Team ORDER BY $sort, year";
+            }
+            else{
+                $sql = "SELECT location, name, conference, division, year_founded, year, wins, losses FROM Team NATURAL JOIN Yearly_Team WHERE conference = $conference AND year = $season ORDER BY $sort, year";
+            }
+            $result = mysqli_query($con,$sql);
+            echo "<table class='table-center' style='margin-top: -384px'>
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Team Name</th>
+                    <th>Conference</th>
+                    <th>Division</th>
+                    <th>Year Founded</th>
+                    <th>Season</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                </tr>
+            </thead>";
+            // Print the data from the table row by row
+            while($row = mysqli_fetch_array($result)) {
+                echo "<tr><td>". $row['location'] ."</td><td>". $row['name'] ."</td><td>". $row['conference'] ."</td><td>". $row['division'] ."</td><td>". $row['year_founded'] ."</td><td>". $row['year'] ."</td><td>". $row['wins'] ."</td><td>". $row['losses'] ."</td></tr>";
+            }
+            echo "</table>";
+            mysqli_close($con);
+        ?>
+    </body>
+</html>

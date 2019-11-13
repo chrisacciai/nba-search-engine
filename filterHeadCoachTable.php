@@ -29,7 +29,7 @@
                 $sql = "SELECT c.first_name, c.last_name, c.year, t.name AS team_name, c.salary FROM Team AS t JOIN  (SELECT * FROM Head_Coach NATURAL JOIN Coaches) AS c ON t.team_id = c.team_id WHERE t.conference = $conference AND c.year = $season ORDER BY $sort";
             }
             $result = mysqli_query($con,$sql);
-            echo "<table class='table-center' style='margin-top: -384px'>
+            echo "<table class='table-center3' id='headCoachTable'>
             <thead>
                 <tr>
                     <th>First Name</th>

@@ -11,6 +11,8 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+        <script src="excellentexport.js"></script>
+
         <script>
             function filterArenaTable() {
                 if (window.XMLHttpRequest) {
@@ -94,7 +96,9 @@
                 </form>
             </div>
         </nav>
+
         <br>
+
         <div class="filter-border">
             <div class="filter-items">
                 <div>
@@ -127,39 +131,56 @@
                 <br>
             </div>
         </div>
-    <div id="table-component">
-        <?php
-            include_once("./library.php"); // To connect to the database
-            $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
-            // Check connection
-            if (mysqli_connect_errno())
-            {
-                echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            }
-            $sql = "SELECT a.name AS arena_name, a.city, a.state, t.name AS team_name, a.capacity FROM Arena AS a JOIN (SELECT * FROM Team NATURAL JOIN Plays_At) AS t ON a.arena_id = t.arena_id ORDER BY arena_name";
-            $result = mysqli_query($con,$sql);
-            echo "<table class='table-center'>
-            <thead>
-                <tr>
-                    <th>Arena Name</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Team Name</th>
-                    <th>Capacity</th>
-                </tr>
-            </thead>";
-            // Print the data from the table row by row
-            while($row = mysqli_fetch_array($result)) {
-                echo "<tr><td>". $row['arena_name'] ."</td><td>". $row['city'] ."</td><td>". $row['state'] ."</td><td>". $row['team_name'] ."</td><td>". $row['capacity'] ."</td></tr>";
-            }
-            echo "</table>";
-            mysqli_close($con);
-        ?>
-    </div>
 
+        <div>
+            </br>
+        <div>
+
+        <div class="filter-border">
+            <div>
+                </br>
+            </div>
+            <a class = "exportLink" download="ArenaData.xls" href="#" onclick="return ExcellentExport.excel(this, 'arenaTable', 'Arena Data');">Export as XLS</a>
+            </br>
+            <a class = "exportLink" download="ArenaData.csv" href="#" onclick="return ExcellentExport.csv(this, 'arenaTable');">Export as CSV</a>
+            <div>
+                </br>
+            </div>
+        </div>
+
+        <div id="table-component">
+            <?php
+                include_once("./library.php"); // To connect to the database
+                $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
+                // Check connection
+                if (mysqli_connect_errno())
+                {
+                    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                }
+                $sql = "SELECT a.name AS arena_name, a.city, a.state, t.name AS team_name, a.capacity FROM Arena AS a JOIN (SELECT * FROM Team NATURAL JOIN Plays_At) AS t ON a.arena_id = t.arena_id ORDER BY arena_name";
+                $result = mysqli_query($con,$sql);
+                echo "<table class='table-center2' id='arenaTable'>
+                <thead>
+                    <tr>
+                        <th>Arena Name</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Team Name</th>
+                        <th>Capacity</th>
+                    </tr>
+                </thead>";
+                // Print the data from the table row by row
+                while($row = mysqli_fetch_array($result)) {
+                    echo "<tr><td>". $row['arena_name'] ."</td><td>". $row['city'] ."</td><td>". $row['state'] ."</td><td>". $row['team_name'] ."</td><td>". $row['capacity'] ."</td></tr>";
+                }
+                echo "</table>";
+                mysqli_close($con);
+            ?>
+        </div>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    
     </body>
 </html>

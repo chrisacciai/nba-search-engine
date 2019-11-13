@@ -15,7 +15,7 @@
             }
             $sql = "SELECT location, name, conference, division, year_founded, year, wins, losses FROM Team NATURAL JOIN Yearly_Team ORDER BY location, year";
             $result = mysqli_query($con,$sql);
-            echo "<table class='table-center' style='margin-top: -384px'>
+            echo "<table class='table-center3' id='teamTable'>
             <thead>
                 <tr>
                     <th>Location</th>

@@ -15,7 +15,7 @@
             }
             $sql = "SELECT p.first_name, p.last_name, p.alma_mater, p.date_of_birth, t.name AS team_name, p.year, p.points_stats, p.assists_stats, p.rebounds_stats, p.salary FROM Team AS t JOIN  (SELECT * FROM Player NATURAL JOIN Plays_For) AS p ON t.team_id = p.team_id ORDER BY first_name, year";
             $result = mysqli_query($con,$sql);
-            echo "<table class='table-center' style='margin-top: -465px; width: 75%; margin-left:224px'>
+            echo "<table class='table-center4' id='playerTable'>
             <thead>
                 <tr>
                     <th>First Name</th>

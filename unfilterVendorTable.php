@@ -15,7 +15,7 @@
             }
             $sql = "SELECT name FROM Vendor ORDER BY name";
             $result = mysqli_query($con,$sql);
-            echo "<table class='table-center' style='margin-top: -222px'>
+            echo "<table class='table-center1' id='vendorTable'>
             <thead>
                 <tr>
                     <th>Vendor Name</th>

@@ -15,7 +15,7 @@
             }
             $sql = "SELECT a.first_name, a.last_name, a.year, t.name AS team_name, a.salary FROM Team AS t JOIN  (SELECT * FROM Assistant_Coach NATURAL JOIN Assistant_Coaches) AS a ON t.team_id = a.team_id ORDER BY first_name, team_name";
             $result = mysqli_query($con,$sql);
-            echo "<table class='table-center' style='margin-top: -384px'>
+            echo "<table class='table-center3' id='assistantCoachTable'>
             <thead>
                 <tr>
                     <th>First Name</th>

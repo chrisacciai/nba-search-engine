@@ -22,7 +22,7 @@
                 $sql = "SELECT item_id, type, name, price FROM Vendor NATURAL JOIN Sells NATURAL JOIN Merchandise WHERE name = $vendor ORDER BY $sort";
             }
             $result = mysqli_query($con,$sql);
-            echo "<table class='table-center'>
+            echo "<table class='table-center2' id='merchandiseTable'>
             <thead>
                 <tr>
                     <th>Item ID</th>

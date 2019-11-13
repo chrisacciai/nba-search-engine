@@ -17,7 +17,7 @@
             $sort = strval($_GET['sort']);
             $sql = "SELECT a.name AS arena_name, a.city, a.state, t.name AS team_name, a.capacity AS capacity FROM Arena AS a JOIN (SELECT * FROM Team NATURAL JOIN Plays_At WHERE conference = $conference) AS t ON a.arena_id = t.arena_id ORDER BY $sort";
             $result = mysqli_query($con,$sql);
-            echo "<table class='table-center'>
+            echo "<table class='table-center2' id='arenaTable'>
             <thead>
                 <tr>
                     <th>Arena Name</th>

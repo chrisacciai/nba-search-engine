@@ -17,7 +17,7 @@
             if ($arena == "all"){
                 $sql = "SELECT name FROM Vendor ORDER BY name";
                 $result = mysqli_query($con,$sql);
-                echo "<table class='table-center' style='margin-top: -222px'>
+                echo "<table class='table-center1' id='vendorTable'>
                 <thead>
                     <tr>
                         <th>Vendor Name</th>
@@ -32,7 +32,7 @@
             else{
                 $sql = "SELECT v.name, lease_num FROM Arena AS a JOIN (SELECT * FROM Vendor NATURAL JOIN Operates_At) AS v ON a.arena_id = v.arena_id WHERE a.name = $arena ORDER BY v.name";
                 $result = mysqli_query($con,$sql);
-                echo "<table class='table-center' style='margin-top: -222px'>
+                echo "<table class='table-center1' id='vendorTable'>
                 <thead>
                     <tr>
                         <th>Vendor Name</th>

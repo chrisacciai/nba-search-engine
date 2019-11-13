@@ -91,10 +91,6 @@
                         <a class="nav-link" href="Vendor.php">Vendors</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
         </nav>
         <br>
@@ -128,7 +124,7 @@
                     <br>
                 </div>
                 <div>
-                    <label>Season:</label>
+                    <label>Seasons:</label>
                     <select class="btn btn-secondary dropdown-toggle btn-sm" id="seasonDropdown">
                         <option value="all">All</option>
                         <option value="'2019-20'">2019-20</option>

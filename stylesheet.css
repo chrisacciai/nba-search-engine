@@ -1,8 +1,20 @@
-@media screen and (max-width: 1000px) { 
-    .sort-menu { display: none; }
-    .filter-menu { display: none; }
-    .table-center {
+@media screen and (max-width: 1050px) { 
+    .filter-border { display: none; }
+    .table-center1 {
         width: 90% !important;
+        margin-top: 0 !important;
+    }
+    .table-center2 {
+        width: 90% !important;
+        margin-top: 0 !important;
+    }
+    .table-center3 {
+        width: 90% !important;
+        margin-top: 0 !important;
+    }
+    .table-center4 {
+        width: 90% !important;
+        margin-left:auto !important;
         margin-top: 0 !important;
     }
 }
@@ -101,7 +113,6 @@
 }
 
 .table-center4 {
-    width: 65%;
     align-content: center;
     margin-left:225px;
     margin-right:auto;
@@ -179,5 +190,9 @@
 
 .table-center4 tr:nth-child(odd) {
     background-color: #f2f2f2;
+}
+
+.form-inline {
+    margin-right: 15px;
 }
 

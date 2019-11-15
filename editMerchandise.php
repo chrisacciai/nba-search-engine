@@ -21,9 +21,18 @@
                     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                 }
                     
-                xmlhttp.open("GET","insertMerchandise.php?arena_id="+document.getElementById("arena_id").value+"&name="+document.getElementById("name").value+"&city="+document.getElementById("city").value+"&state="+document.getElementById("state").value+"&capacity="+document.getElementById("capacity").value, true);
-                    xmlhttp.send();
-                document.write(document.getElementById("arena_id").value);
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("responseText").innerHTML = this.responseText;
+                        document.getElementById("item_id").value = "";
+                        document.getElementById("type").value = "";
+                        document.getElementById("name").value = "";
+                        document.getElementById("vendor_id").value = "";
+                        document.getElementById("price").value = "";
+                    }
+                }
+            xmlhttp.open("GET","insertMerchandise.php?item_id="+document.getElementById("item_id").value+"&type="+document.getElementById("type").value+"&name="+document.getElementById("name").value+"&vendor_id="+document.getElementById("vendor_id").value+"&price="+document.getElementById("price").value, true);
+                xmlhttp.send();
             }
         </script>
 
@@ -64,25 +73,41 @@
                 </ul>
             </div>
         </nav>
-        <br>
         <div class="home-titles">
             <p class="home-title">Edit Merchandise table</p>
             </br>
         </div>
-        <div style="text-align: center">
-            <form action="insertMerchandise.php" method="post">
-                <div>
-                    Item ID: <input type="text" name="item_id"></input>
-                </div>
-                </br>
-                <div>
-                    Type: <input type="text" name="type"></input>
-                </div>
-                </br>
-                <div>
-                    <input class="btn btn-outline-success my-2 my-sm-0" type="Submit" value="Insert"></input>
-                </div>
-            </form>
+        <div style="text-align: center" id="textFields">
+            <div>
+                Item ID: <input id="item_id"></input>
+            </div>
+            </br>
+            <div>
+                Category: <input id="type"></input>
+            </div>
+            </br>
+            <div>
+                Vendor Name: <input id="name"></input>
+            </div>
+            </br>
+            <div>
+                Vendor ID: <input id="vendor_id"></input>
+            </div>
+            </br>
+            <div>
+                Price ($): <input id="price"></input>
+            </div>
+            </br>
+            <div>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="insert()">Insert</button>
+            </div>
+        </div>
+
+        </br>
+        </br>
+    
+        <div id="responseText" style="text-align: center">
+
         </div>
             
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

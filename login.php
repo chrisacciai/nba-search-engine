@@ -16,6 +16,9 @@
         if (document.getElementById("username").value == "css8cw" && document.getElementById("password").value == "admin"){
             window.location.href = "edit.html";
         }
+        else{
+            document.getElementById("password").value = ""; 
+        }
         return false;
     }
 </script>

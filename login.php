@@ -10,16 +10,34 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <script>
-            function verify() {
-                if (document.getElementById("username").value == "css8cw" && document.getElementById("password").value == "admin"){
-                    window.location.href = "./edit.html";
+            function verifyCredentials(callback){
+                 if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                                    
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        callback(this.responseText);
+                    }
+                }
+            xmlhttp.open("GET","verifyCredentials.php?username="+document.getElementById("username").value+"&password="+document.getElementById("password").value, true);
+                xmlhttp.send();
+            }
+
+            function callback(response){
+                if (response.length == 157){
+                    document.getElementById("responseText").innerHTML = "<div class='errorPopup'> <span class='closebtn' onclick=\"this.parentElement.style.display='none';\">&times;</span>Incorrect credentials. Check to make sure that both your username and password are correct.</div>";
+                    document.getElementById("password").value = ""; 
                 }
                 else{
-                    document.getElementById("password").value = "";
-                    document.getElementById("responseText").innerHTML = "<div class='errorPopup'> <span class='closebtn' onclick=\"this.parentElement.style.display='none';\">&times;</span>Incorrect credentials. Check to make sure that both your username and password are correct.</div>";
+                    window.location.replace("./edit.html");
                 }
-                return false;
             }
+
         </script>
 
         <script>
@@ -46,7 +64,7 @@
             </div>
             </br>
             <div>
-                <button class="btn btn-outline-success my-2 my-sm-0" onclick="return verify()">Login</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="verifyCredentials(callback)">Login</button>
             </div>
             </br>
             <div>

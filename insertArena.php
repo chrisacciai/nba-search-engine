@@ -17,20 +17,19 @@
             $item_id = strval($_GET['item_id']);
             $type = strval($_GET['type']);
             $name = strval($_GET['name']);
+            $vendor_id = strval($_GET['vendor_id']);
             $price = floatval($_GET['price']);
             
-            $sql = "SELECT * FROM Vendor WHERE name = '$name'";
-            $result = mysqli_query($con,$sql);
-            if (mysqli_num_rows($result) == 0){
+            $sql2 = "SELECT * FROM Vendor WHERE vendor_id = '$vendor_id' AND name = '$name'";
+            $result2 = mysqli_query($con,$sql2);
+            if (mysqli_num_rows($result2) == 0){
                 echo "<div class='errorPopup'> <span class='closebtn' onclick=\"this.parentElement.style.display='none';\">&times;</span>Error(s) encountered. Failed to insert new data.</div>";
             }
             else{
-                $row = mysqli_fetch_assoc($result);
-                $vendor_id = $row['vendor_id'];
-                $sql2 = "INSERT INTO Merchandise(item_id, type) VALUES ('$item_id', '$type'); INSERT INTO Sells(vendor_id, item_id, price) VALUES ('$vendor_id', '$item_id', $price)";
-                $result2 = mysqli_multi_query($con,$sql2);
+                $sql = "INSERT INTO Merchandise(item_id, type) VALUES ('$item_id', '$type'); INSERT INTO Sells(vendor_id, item_id, price) VALUES ('$vendor_id', '$item_id', $price)";
+                $result = mysqli_multi_query($con,$sql);
                 
-                if (!$result2){
+                if (!$result){
                     echo "<div class='errorPopup'> <span class='closebtn' onclick=\"this.parentElement.style.display='none';\">&times;</span>Error(s) encountered. Failed to insert new data.</div>";
                 }
                 else{

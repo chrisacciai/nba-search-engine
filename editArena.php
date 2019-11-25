@@ -12,7 +12,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <script>
-            function insertMerchandise() {
+            function insertArena() {
                 if (window.XMLHttpRequest) {
                     // code for IE7+, Firefox, Chrome, Opera, Safari
                     xmlhttp = new XMLHttpRequest();
@@ -24,13 +24,14 @@
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         document.getElementById("responseText").innerHTML = this.responseText;
-                        document.getElementById("item_id").value = "";
-                        document.getElementById("type").value = "";
+                        document.getElementById("arena_id").value = "";
                         document.getElementById("name").value = "";
+                        document.getElementById("city").value = "";
+                        document.getElementById("state").value = "";
                         document.getElementById("price").value = "";
                     }
                 }
-            xmlhttp.open("GET","insertMerchandise.php?item_id="+document.getElementById("item_id").value+"&type="+document.getElementById("type").value+"&name="+document.getElementById("name").value+"&price="+document.getElementById("price").value, true);
+            xmlhttp.open("GET","insertMerchandise.php?item_id="+document.getElementById("item_id").value+"&type="+document.getElementById("type").value+"&name="+document.getElementById("name").value+"&vendor_id="+document.getElementById("vendor_id").value+"&price="+document.getElementById("price").value, true);
                 xmlhttp.send();
             }
         </script>
@@ -112,6 +113,10 @@
                 </br>
                 <div>
                     Vendor Name: <input id="name"></input>
+                </div>
+                </br>
+                <div>
+                    Vendor ID: <input id="vendor_id"></input>
                 </div>
                 </br>
                 <div>
